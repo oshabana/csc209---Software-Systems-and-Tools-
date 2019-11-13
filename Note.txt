@@ -1,0 +1,4 @@
+Some of the work listed here contains starter code provided in the course CSC209 at the University of Toronto.
+Typically the templates were written by Dan Zingaro or Furkan Alaca.
+
+This was done in spring of 2019

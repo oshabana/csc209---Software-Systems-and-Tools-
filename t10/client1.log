@@ -1,0 +1,10 @@
+Script started on Fri 22 Mar 2019 08:38:55 PM EDT
+shabanao:~/209_repo/t10>exitgdb bufserverexit[K./randclient 127.0.0.1
+connect: Connection refused
+shabanao:~/209_repo/t10>./randclient 127.0.0.1
+connect: Connection refused
+shabanao:~/209_repo/t10>./randclient 127.0.0.1
+shabanao:~/209_repo/t10>exit
+exit
+
+Script done on Fri 22 Mar 2019 08:41:54 PM EDT

@@ -1,0 +1,23 @@
+===== Question 1 =====
+B, E            
+===== Question 2 =====
+ABCEBDE
+ABDEBCE
+ABCEBDE
+ABCBCDE
+ABBCDEE
+ABBDCEE 
+ABBDECE
+ABBCEDE 
+ABCCDEE
+ABCDECE
+ABCCEDE 
+ABDCEDE
+  
+Total orderings = 12
+Should be 24 I think?? AB...E is constantbut the 4 in the middle will alternate so 4!
+===== Question 3 =====
+30
+===== Question 4 =====
+17156 -> 17563 -> 17156 -> 17156 -> 17563 -> 17564 -> 1 -> 117564 -> 1
+ -> 1 -> 1 -> 1

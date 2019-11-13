@@ -1,0 +1,172 @@
+Script started on Fri 18 Jan 2019 06:24:39 PM EST
+shabanao:~/209_repo/t02>[2P(reverse-i-search)`': g': gcc -Wall -g -o overflow overflow.cd': cd 209_repo/t02fgd#include <stdio.h>[C[8@failed reverse-i-search)`gdb[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9Preverse-i-search)`g': gcc -Wall -g -o overflow overflow.c[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2@shabanao:~/209_repo/t02>[C[C[C[C[C[C[C[C[C[C[C
+shabanao:~/209_repo/t02>gdb overflow
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.5) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from overflow...done.
+(gdb) break main
+Breakpoint 1 at 0x40062e: file overflow.c, line 6.
+(gdb) run
+Starting program: /student/shabanao/209_repo/t02/overflow 
+
+Breakpoint 1, main () at overflow.c:6
+6	int main() {
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /student/shabanao/209_repo/t02/overflow 
+
+Breakpoint 1, main () at overflow.c:6
+6	int main() {
+(gdb) next
+7	    int index = 0;
+(gdb) 
+9	    int before[SIZE] = {10, 10, 10, 10};
+(gdb) 
+10	    int a[SIZE] = {0, 0, 0, 0};
+(gdb) 
+11	    int after[SIZE] = {10, 10, 10, 10};
+(gdb) 
+13	    printf("Address of the variables:\n");
+(gdb) 
+Address of the variables:
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) 
+7fffffffe9c0 -> &after[0]
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) 
+7fffffffe9c4 -> &after[1]
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) 
+7fffffffe9c8 -> &after[2]
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) 
+7fffffffe9cc -> &after[3]
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+17	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+18	        printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+(gdb) 
+7fffffffe9b0 -> &a[0]
+17	    for (index = 0; index < SIZE; index++) {
+(gdb) 
+18	        printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+(gdb) list
+13	    printf("Address of the variables:\n");
+14	    for (index = 0; index < SIZE; index++) {
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+16	    }
+17	    for (index = 0; index < SIZE; index++) {
+18	        printf("%lx -> &a[%d]\n", (unsigned long) &a[index], index);
+19	    }
+20	    for (index = 0; index < SIZE; index++) {
+21	        printf("%lx -> &before[%d]\n", (unsigned long) &before[index], index);
+22	    }
+(gdb) 
+23	    printf("%lx -> &i\n", (unsigned long)&i);
+24	    printf("%lx -> &index\n", (unsigned long)&index);
+25	    printf("\n");
+26	
+27	
+28	    printf("Initial values:\n");
+29	    printf("i = %d\n", i);
+30	    printf("before = {%d, %d, %d, %d}\n", before[0], before[1], before[2], before[3]);
+31	    printf("a = {%d, %d, %d, %d}\n", a[0], a[1], a[2], a[3]);
+32	    printf("after = {%d, %d, %d, %d}\n", after[0], after[1], after[2], after[3]);
+(gdb) break 15
+Breakpoint 2 at 0x4006ab: file overflow.c, line 15.
+(gdb) run[K[K[Krun
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /student/shabanao/209_repo/t02/overflow 
+
+Breakpoint 1, main () at overflow.c:6
+6	int main() {
+(gdb) runbreak 15
+Note: breakpoint 2 also set at pc 0x4006ab.
+Breakpoint 3 at 0x4006ab: file overflow.c, line 15.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) next
+7	    int index = 0;
+(gdb) next
+9	    int before[SIZE] = {10, 10, 10, 10};
+(gdb) next
+10	    int a[SIZE] = {0, 0, 0, 0};
+(gdb) display
+(gdb) list
+5	
+6	int main() {
+7	    int index = 0;
+8	    int i;
+9	    int before[SIZE] = {10, 10, 10, 10};
+10	    int a[SIZE] = {0, 0, 0, 0};
+11	    int after[SIZE] = {10, 10, 10, 10};
+12	
+13	    printf("Address of the variables:\n");
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) next
+11	    int after[SIZE] = {10, 10, 10, 10};
+(gdb) 
+13	    printf("Address of the variables:\n");
+(gdb) 
+Address of the variables:
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) break
+Breakpoint 4 at 0x4006a2: file overflow.c, line 14.
+(gdb) next
+
+Breakpoint 2, main () at overflow.c:15
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) contiue[K[Knue
+Continuing.
+7fffffffe9c0 -> &after[0]
+
+Breakpoint 2, main () at overflow.c:15
+15	        printf("%lx -> &after[%d]\n", (unsigned long) &after[index], index);
+(gdb) nezxx[K[K[Kxt
+7fffffffe9c4 -> &after[1]
+14	    for (index = 0; index < SIZE; index++) {
+(gdb) print %[K&{}a}f}t}e}r}[}]}0]}
+$1 = (int (*)[1]) 0x602420
+(gdb) print &{after[0]}[1P]}4]}
+$2 = (int (*)[1]) 0x602440
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 6914] will be killed.
+
+Quit anyway? (y or n) y
+shabanao:~/209_repo/t02>quit
+bash: quit: command not found
+shabanao:~/209_repo/t02>exit
+exit
+
+Script done on Fri 18 Jan 2019 06:37:48 PM EST
