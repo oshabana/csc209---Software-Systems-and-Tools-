@@ -221,7 +221,7 @@ int get_mode(char * command,int clientfd){
     return mode;
 }
 
-//unchecked
+
 JobNode ** create_joblist(int max){
      JobNode ** job_list = malloc(sizeof(JobNode *) * max);
     for(int i = 0; i < max; i++)
@@ -231,7 +231,7 @@ JobNode ** create_joblist(int max){
     
     return job_list;
     }
-//unchecked
+
 int check_job_availability(JobNode ** list,int clientfd){
     for(int spot = 0; spot < MAX_JOBS; spot++)
     {
@@ -244,7 +244,7 @@ int check_job_availability(JobNode ** list,int clientfd){
     return -1;
 }
 
-//unchecked
+
 JobNode * create_jobnode(JobNode ** list,int clientfd){
     int spot = check_job_availability(list,clientfd);
     if(spot == -1){
@@ -259,7 +259,7 @@ JobNode * create_jobnode(JobNode ** list,int clientfd){
     return list[spot];
 }
 
-//unchecked
+
 void start_job(char * command, JobNode * node, int clientfd, int * fd){
     int pid = fork();
     if(pid < 0){
@@ -410,22 +410,4 @@ int pid_to_job(int pid,JobNode ** list){
 int write_to(Buffer * jbuf){
     return -1;
 }
-/*
-void start_watching(char * command,JobNode ** list){
-    char command_name[BUFSIZE];
-    char pid_name[BUFSIZE];
-    char args[BUFSIZE];
-    if(sscanf(command,"%s %s %s",command_name,pid_name,args) == EOF){
-            perror("EOF error");
-        }
-    //remove_networknewline(pid);
-    int pid = strtol(pid_name,NULL,10);
 
-    int index = pid_to_job(pid,list);
-    JobNode * job = list[index];
-
-    //implement watching INCOMPLETE
-
-
-
-}*/
