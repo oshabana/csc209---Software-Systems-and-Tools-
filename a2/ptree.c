@@ -153,9 +153,8 @@ int generate_ptree(struct TreeNode ** root, pid_t pid) {
             snprintf(exefile, MAX_PATH_LENGTH + 1, "%s/%d/exe",PROC_ROOT,c_in_int[i]);
             check1 = lstat(procfile,&buff3);
             check2 = lstat(exefile,&buff4);
-            //printf("For pid: %d proc = %d and exe = %d\n",c_in_int[i],check1,check2);
+         
             if(check1 == 0 && check2 == 0){
-                //printf("%d exists and all is good in the world\n",c_in_int[i]);
                 child_ptr = &child[i];
                 generate_ptree(&child_ptr,c_in_int[i]);
             }
@@ -169,7 +168,7 @@ int generate_ptree(struct TreeNode ** root, pid_t pid) {
             }
             
             else{
-                //(*root)->child_procs = NULL;
+        
                 break;
                 }
             if( number_of_children - 1 != i ){
@@ -177,15 +176,14 @@ int generate_ptree(struct TreeNode ** root, pid_t pid) {
                 snprintf(exefile, MAX_PATH_LENGTH + 1, "%s/%d/exe",PROC_ROOT,c_in_int[i+1]);
                 check3 = lstat(procfile,&buff3);
                 check4 = lstat(exefile,&buff4);
-                //if(check1 == -1 || check2 == -1){
-               // }
+        
                 if(check3 >= 0 && check4 >= 0){
                     child[i].next_sibling = &child[i+1];
                     }
              }
             else{
                 child[i].next_sibling = NULL;
-                //fprintf(stderr,"File of exe for %d does not exist, therefore its branch will be ignored\n",pid);
+       
             }
             
          }
@@ -194,6 +192,8 @@ int generate_ptree(struct TreeNode ** root, pid_t pid) {
      return 0;
     
 }
+
+// This version is missing the free() calls once a proc has completed :(
 
 void print_ptree(struct TreeNode *root, int max_depth) {
     // Here's a trick for remembering what depth (in the tree) you're at
