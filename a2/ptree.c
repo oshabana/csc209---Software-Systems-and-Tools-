@@ -192,8 +192,7 @@ int generate_ptree(struct TreeNode ** root, pid_t pid) {
     
     }
      return 0;
-     //Calling free() was very difficult here because it kept making the input radically incorrect or it simply wouldn't run
-     //I guess due to the recursive nature of this function
+    
 }
 
 void print_ptree(struct TreeNode *root, int max_depth) {
